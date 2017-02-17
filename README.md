@@ -2,8 +2,9 @@
 
 This library allow simplified manipulation of recursive associative arrays with an object oriented aproach in php.
 
-[![Build Status](https://travis-ci.org/oliverde8/AssociativeArraySimplified.svg?branch=master)](https://travis-ci.org/oliverde8/AssociativeArraySimplified)
-
+[![Build Status](https://travis-ci.org/oliverde8/AssociativeArraySimplified.svg?branch=master)](https://travis-ci.org/oliverde8/AssociativeArraySimplified) 
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/oliverde8/AssociativeArraySimplified/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/oliverde8/AssociativeArraySimplified/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/oliverde8/AssociativeArraySimplified/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/oliverde8/AssociativeArraySimplified/?branch=master)
 
 ## Associative Array 
 
