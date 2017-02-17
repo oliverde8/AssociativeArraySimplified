@@ -187,4 +187,12 @@ class AssociativeArrayTest extends \PHPUnit_Framework_TestCase
 
         $array->set('aaa', []);
     }
+
+    public function testClear()
+    {
+        $array = new AssociativeArray($this->recursiveData, '.');
+        $array->clear();
+
+        $this->assertEmpty($array->getArray());
+    }
 }
