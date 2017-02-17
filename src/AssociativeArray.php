@@ -37,7 +37,7 @@ class AssociativeArray
     /**
      * AssociativeArray constructor.
      *
-     * @param array $data
+     * @param array $data The original array with the data.
      * @param string $keySeparator
      */
     function __construct($data = [], $keySeparator = '/')
@@ -60,6 +60,19 @@ class AssociativeArray
     }
 
     /**
+     * Check if a value for the key exists.
+     *
+     * @param string[]|string $key       Key or path to the value
+     *                                   (either array or string separated with the separator)
+     *
+     * @return mixed
+     */
+    public function keyExist($key)
+    {
+        return self::checkKeyExist($this->data, $key, $this->separator);
+    }
+
+    /**
      * Set data inside
      *
      * @param string[]|string $key       Key or path to the value to set
@@ -71,6 +84,9 @@ class AssociativeArray
         self::setFromKey($this->data, $key, $value, $this->separator);
     }
 
+    /**
+     * Empty the data stored.
+     */
     public function clear()
     {
         $this->checkReadOnly();
@@ -79,6 +95,8 @@ class AssociativeArray
 
 
     /**
+     * Get the array with all the data.
+     *
      * @return array All the data
      */
     public function getArray(){
@@ -87,7 +105,7 @@ class AssociativeArray
 
 
     /**
-     * Replace the data
+     * Replace the current array entirely.
      *
      * @param array $data new data
      */
@@ -130,7 +148,63 @@ class AssociativeArray
         if (!is_array($key)) {
             $key = explode($separator, $key);
         }
-        return self::recurseiveGetFromKey($data, $key, $default);
+        return self::recursiveGetFromKey($data, $key, $default);
+    }
+
+    /**
+     * Private unsecured function for getFromKey
+     *
+     * @param $data
+     * @param $key
+     * @param $default
+     *
+     * @return mixed
+     */
+    private static function recursiveGetFromKey($data, $key, $default)
+    {
+        if (empty($key)) {
+            return $data;
+        } else {
+            $currentKey = array_shift($key);
+            return isset($data[$currentKey]) ? self::recursiveGetFromKey($data[$currentKey], $key, $default) : $default;
+        }
+    }
+
+    /**
+     * Get value from array, if is not set then return default value(null)
+     *
+     * @param array           $data      Array to get data from
+     * @param string[]|string $key       Key or path to the value
+     *                                   (either array or string separated with the separator)
+     * @param string          $separator Separator to use
+     *
+     * @return mixed
+     */
+    public static function checkKeyExist($data, $key, $separator = '/')
+    {
+        if (!is_array($key)) {
+            $key = explode($separator, $key);
+        }
+        return self::recursiveKeyExist($data, $key);
+    }
+
+    /**
+     * @param array     $data      Array to get data from
+     * @param string[]  $key       Key or path to the value
+     *                             (either array or string separated with the separator)
+     * @param $data
+     * @param $key
+     *
+     * @return mixed
+     */
+    private static function recursiveKeyExist($data, $key)
+    {
+        if (empty($key)) {
+            return true;
+        } else {
+            $currentKey = array_shift($key);
+            return isset($data[$currentKey]) ? self::recursiveKeyExist($data[$currentKey], $key) : false;
+        }
     }
 
     /**
@@ -175,25 +249,6 @@ class AssociativeArray
 
             $data[$currentKey] = self::recursiveSetFromKey($data[$currentKey], $key, $value);
             return $data;
-        }
-    }
-
-    /**
-     * Private unsecured function for getFromKey
-     *
-     * @param $data
-     * @param $key
-     * @param $default
-     *
-     * @return mixed
-     */
-    private static function recurseiveGetFromKey($data, $key, $default)
-    {
-        if (empty($key)) {
-            return $data;
-        } else {
-            $currentKey = array_shift($key);
-            return isset($data[$currentKey]) ? self::recurseiveGetFromKey($data[$currentKey], $key, $default) : $default;
         }
     }
 }

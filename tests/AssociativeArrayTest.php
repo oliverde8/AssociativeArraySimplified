@@ -110,6 +110,14 @@ class AssociativeArrayTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('my_unknown_2', $array->get('unknown/unknown_1/toto', 'my_unknown_2'));
     }
 
+    public function testKeyExist()
+    {
+        $array = new AssociativeArray($this->recursiveData);
+
+        $this->assertTrue($array->keyExist('aaa'));
+        $this->assertFalse($array->keyExist('zzz'));
+    }
+
     public function testSet()
     {
         $array = new AssociativeArray($this->data);
