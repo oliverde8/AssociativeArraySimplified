@@ -6,6 +6,8 @@ This library allow simplified manipulation of recursive associative arrays with 
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/oliverde8/AssociativeArraySimplified/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/oliverde8/AssociativeArraySimplified/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/oliverde8/AssociativeArraySimplified/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/oliverde8/AssociativeArraySimplified/?branch=master)
 
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/fc4c6968-5c27-49ee-9cda-4d648aa650f9/big.png)](https://insight.sensiolabs.com/projects/fc4c6968-5c27-49ee-9cda-4d648aa650f9)
+
 ## Associative Array 
 
 This is the main clas of the library. It allows the manipulation of the association arrays with ease. 
