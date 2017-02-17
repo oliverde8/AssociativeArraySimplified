@@ -40,7 +40,7 @@ class AssociativeArray
      * @param array $data The original array with the data.
      * @param string $keySeparator
      */
-    function __construct($data = [], $keySeparator = '/')
+    public function __construct($data = [], $keySeparator = '/')
     {
         $this->data = $data;
         $this->separator = $keySeparator;

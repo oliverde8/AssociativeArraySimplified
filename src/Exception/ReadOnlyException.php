@@ -11,7 +11,6 @@ namespace oliverde8\AssociativeArraySimplified\Exception;
  * @copyright 2017 Smile
  * @package oliverde8\AssociativeArraySimplified\Exception
  */
-class ReadOnlyException extends  \Exception
+class ReadOnlyException extends \Exception
 {
-
 }
