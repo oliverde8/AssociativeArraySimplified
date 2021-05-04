@@ -183,7 +183,7 @@ class AssociativeArrayTest extends TestCase
         $array = new AssociativeArray($this->recursiveData, '.');
         $array->makeReadOnly();
 
-        $this->setExpectedException('oliverde8\AssociativeArraySimplified\Exception\ReadOnlyException', 'Trying to edit content in read only AssociativeArray !');
+        $this->expectException('oliverde8\AssociativeArraySimplified\Exception\ReadOnlyException', 'Trying to edit content in read only AssociativeArray !');
 
         $array->set('aaa', []);
     }
