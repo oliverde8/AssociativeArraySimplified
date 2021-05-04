@@ -4,7 +4,7 @@
 namespace oliverde8\AssociativeArraySimplifiedTest;
 
 use oliverde8\AssociativeArraySimplified\AssociativeArray;
-
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class AssociativeArrayTest
@@ -13,7 +13,7 @@ use oliverde8\AssociativeArraySimplified\AssociativeArray;
  * @copyright 2017 Smile
  * @package oliverde8\AssociativeArraySimplifiedTest
  */
-class AssociativeArrayTest extends \PHPUnit_Framework_TestCase
+class AssociativeArrayTest extends TestCase
 {
 
     protected $data = ['aaa' => 'abc', 'bbb' => 'bcd'];
